@@ -14,12 +14,14 @@
 
 <br/><br/>
 
-<img src="assets/render-front.jpg" width="68%" alt="VORTEXA 产品渲染"/>
+<img src="assets/hero-banner.jpg" width="100%" alt="VORTEXA — 多一双温柔的手，守护每月的安心"/>
 
 <br/>
 
-一款覆盖 **设计调研 → 产品定义 → 传感硬件 → 电路系统 → AI 算法 → 原型验证** 的全链路独立作品：
-以工业设计方法论驱动产品定义，以硬件改造与电路攻关筑牢工程底座，以算法工程闭合「感知 — 识别 — 反馈」回路。
+**多一双温柔的手，守护每月的安心。**
+高密度压感阵列，模拟专业触诊手法；逐月记录，让自检有据可依。
+
+<sub>一款覆盖 设计调研 → 产品定义 → 传感硬件 → 电路系统 → AI 算法 → 原型验证 的全链路独立作品</sub>
 
 </div>
 
@@ -45,14 +47,43 @@ VORTEXA 的回答是一颗掌心大小的「粉色鹅卵石」：
 
 ## 工作量全景
 
-| 模块 | 主要工作 | 关键产出 |
-|---|---|---|
-| 设计调研 | 3 类利益相关者深度访谈；问卷设计与投放；6 款竞品三维定量评分与散点建模 | 100 份有效问卷；竞品评分矩阵；市场空白定位 |
-| 形态设计 | 握持手势研究；草图发散；Stable Diffusion LoRA 意向图批量生成与关键词迭代；Rhino 精细建模；渲染与 CMF | 4 大风格方向；掌心式最终方案；整套效果图与 CMF 规范 |
-| 结构验证 | 3 种曲率壳体 3D 打印；软 / 硬曲面力传导对比实测；触诊区结构选型 | 「中低曲率 + 中高硬度 + TPU 表面」结构结论 |
-| 传感单元 | 25+ 颗 BMP280 去壳改造与硅胶封装；三明治传力结构 3 轮迭代；2 种硅胶 × 3 种 TPU 硬度组合砝码标定 | 线性度约 98%；标定 R² 最高 0.994；Shore 30 硅胶选型 |
-| 电路系统 | 面包板 1×1 → 5×5 五级渐进扩阵；选通电路 4 次方案迭代；软硬结合 PCB（单元板 / 纵横排线 / 逻辑板共 5 部分）设计与打样 | 25 路稳定选通；32Hz 实时采样；可量产 PCB 文件 |
-| AI 算法 | 数据清洗对齐 pipeline；ResNet-18 迁移学习基线；自研 1D-CNN 网络与训练引擎 | 二分类准确率 52% → 95.24%；15 epoch 收敛 |
+<table>
+  <tr>
+    <th width="96" align="center">模块</th>
+    <th width="56%">主要工作</th>
+    <th>关键产出</th>
+  </tr>
+  <tr>
+    <td align="center"><b>设计调研</b></td>
+    <td>3 类利益相关者深度访谈；问卷设计与投放；6 款竞品「技术性能 / 用户交互 / 医疗适配」三维定量评分与散点建模</td>
+    <td>100 份有效问卷<br/>竞品评分矩阵 · 市场空白定位</td>
+  </tr>
+  <tr>
+    <td align="center"><b>形态设计</b></td>
+    <td>握持手势研究；草图发散；Stable Diffusion LoRA 意向图批量生成与关键词迭代；Rhino 精细建模；渲染与 CMF</td>
+    <td>4 大风格方向<br/>掌心式最终方案 · 整套效果图与 CMF 规范</td>
+  </tr>
+  <tr>
+    <td align="center"><b>结构验证</b></td>
+    <td>3 种曲率壳体 3D 打印；软 / 硬曲面力传导对比实测；触诊区结构选型</td>
+    <td>「中低曲率 + 中高硬度 + TPU 表面」结构结论</td>
+  </tr>
+  <tr>
+    <td align="center"><b>传感单元</b></td>
+    <td>25+ 颗 BMP280 去壳改造与硅胶封装；三明治传力结构 3 轮迭代；2 种硅胶 × 3 种 TPU 硬度组合砝码标定</td>
+    <td>线性度约 98%<br/>标定 R² 最高 0.994 · Shore 30 硅胶选型</td>
+  </tr>
+  <tr>
+    <td align="center"><b>电路系统</b></td>
+    <td>面包板 1×1 → 5×5 五级渐进扩阵；选通电路 4 次方案迭代；软硬结合 PCB（单元板 / 纵横排线 / 逻辑板共 5 部分）设计与打样</td>
+    <td>25 路稳定选通<br/>32Hz 实时采样 · 可量产 PCB 文件</td>
+  </tr>
+  <tr>
+    <td align="center"><b>AI 算法</b></td>
+    <td>数据清洗对齐 pipeline；ResNet-18 迁移学习基线；自研 1D-CNN 网络与训练引擎</td>
+    <td>二分类准确率 52% → 95.24%<br/>15 epoch 收敛</td>
+  </tr>
+</table>
 
 ## 系统架构
 
@@ -73,25 +104,36 @@ flowchart LR
 
 **竞品三维定量评分**（技术性能 / 用户交互 / 医疗适配性，1–5 分）：
 
-| 类别 | 竞品 | 技术性能 | 用户交互 | 医疗适配 |
-|---|---|:---:|:---:|:---:|
-| 非触觉 | cUSBr-Patch 可穿戴超声贴片 | 3 | 3 | 3 |
-| 非触觉 | iSono ATUSA 便携自动化超声 | 4 | 3 | 3 |
-| 非触觉 | iTBra 温度传感内衣 | 2 | 4 | 2 |
-| 触觉 | SureTouch 触觉成像探头 | 3 | 4 | 3 |
-| 触觉 | Dotplot 超声 + 触摸传感 | 3 | 3 | 4 |
-| 触觉 | iBreastExam 手持压力热成像 | 3 | 4 | 2 |
+<table>
+  <tr>
+    <th width="80" align="center">类别</th>
+    <th>竞品</th>
+    <th width="90" align="center">技术性能</th>
+    <th width="90" align="center">用户交互</th>
+    <th width="90" align="center">医疗适配</th>
+  </tr>
+  <tr><td align="center">非触觉</td><td>cUSBr-Patch 可穿戴超声贴片</td><td align="center">3</td><td align="center">3</td><td align="center">3</td></tr>
+  <tr><td align="center">非触觉</td><td>iSono ATUSA 便携自动化超声</td><td align="center">4</td><td align="center">3</td><td align="center">3</td></tr>
+  <tr><td align="center">非触觉</td><td>iTBra 温度传感内衣</td><td align="center">2</td><td align="center">4</td><td align="center">2</td></tr>
+  <tr><td align="center">触觉</td><td>SureTouch 触觉成像探头</td><td align="center">3</td><td align="center">4</td><td align="center">3</td></tr>
+  <tr><td align="center">触觉</td><td>Dotplot 超声 + 触摸传感</td><td align="center">3</td><td align="center">3</td><td align="center">4</td></tr>
+  <tr><td align="center">触觉</td><td>iBreastExam 手持压力热成像</td><td align="center">3</td><td align="center">4</td><td align="center">2</td></tr>
+</table>
 
 将评分映射到三维散点图后发现：「触觉式 + 高用户交互 + 中高医疗适配」象限存在**市场空白**——多数触觉竞品技术性能中等、医疗适配偏弱。由此确立产品定位：**手持式、低成本、强反馈、面向家庭的智能触觉自查设备**。
 
 **四条贯穿全程的设计约束**：
 
-| 设计约束 | 内涵 |
-|---|---|
-| 去医疗化 | 看起来像日常用品而非医疗设备，消解「过度医疗感」带来的心理压力与价格门槛 |
-| 情感化 | 肤感粉色、圆润有机形态、亲肤材质，传达温暖、私密、安全 |
-| 隐私关怀 | 面向卧室 / 浴室私密场景，外观自然融入家居、便于随时取用与收纳 |
-| 碎片化适配 | 全流程不超过 3 次交互、盲触识别、一键启动，契合碎片化生活 |
+<table>
+  <tr>
+    <th width="120" align="center">设计约束</th>
+    <th>内涵</th>
+  </tr>
+  <tr><td align="center"><b>去医疗化</b></td><td>看起来像日常用品而非医疗设备，消解「过度医疗感」带来的心理压力与价格门槛</td></tr>
+  <tr><td align="center"><b>情感化</b></td><td>肤感粉色、圆润有机形态、亲肤材质，传达温暖、私密、安全</td></tr>
+  <tr><td align="center"><b>隐私关怀</b></td><td>面向卧室 / 浴室私密场景，外观自然融入家居、便于随时取用与收纳</td></tr>
+  <tr><td align="center"><b>碎片化适配</b></td><td>全流程不超过 3 次交互、盲触识别、一键启动，契合碎片化生活</td></tr>
+</table>
 
 ## 形态推演与产品设计
 
@@ -102,21 +144,26 @@ flowchart LR
 <div align="center">
 <table>
   <tr>
-    <td align="center" width="50%"><img src="assets/render-in-hand.jpg" alt="握持场景"/><br/><sub>掌心握持 · 单手盲触操作</sub></td>
-    <td align="center" width="50%"><img src="assets/render-top.png" alt="顶视渲染"/><br/><sub>顶部一键启动 · 中轴功能分缝</sub></td>
+    <td align="center" width="34%"><img src="assets/render-front.jpg" alt="正面渲染"/><br/><sub>正面视角 · 底部透光传感区</sub></td>
+    <td align="center" width="37%"><img src="assets/render-in-hand.jpg" alt="握持场景"/><br/><sub>掌心握持 · 单手盲触操作</sub></td>
+    <td align="center" width="29%"><img src="assets/render-top.png" alt="顶视渲染"/><br/><sub>顶部一键启动 · 中轴功能分缝</sub></td>
   </tr>
 </table>
 </div>
 
 **每个设计决策都有人因依据**：
 
-| 设计决策 | 依据 |
-|---|---|
-| 整机 132mm 高 × 120mm 宽 × 底径 90mm | 成年女性手长 166–190mm、手宽 70–85mm，贴合手掌弧度且底径充分接触皮肤 |
-| 握持区柔性支撑、避免硬边 | 鱼际肌为天然减振器，指腹神经末梢密集，长时间操作不产生压力点 |
-| 中部防滑纹理带 + 侧面凹陷交互区 | 无需看屏即可盲触定位，适配私密场景 |
-| 中轴线功能分缝 + 模块化触觉阵列 | 传感模块可拆卸更换，便于迭代维护 |
-| 触诊接触面 100–120mm² | 平衡舒适性与数据采集精度 |
+<table>
+  <tr>
+    <th width="40%">设计决策</th>
+    <th>依据</th>
+  </tr>
+  <tr><td>整机 132mm 高 × 120mm 宽 × 底径 90mm</td><td>成年女性手长 166–190mm、手宽 70–85mm，贴合手掌弧度且底径充分接触皮肤</td></tr>
+  <tr><td>握持区柔性支撑、避免硬边</td><td>鱼际肌为天然减振器，指腹神经末梢密集，长时间操作不产生压力点</td></tr>
+  <tr><td>中部防滑纹理带 + 侧面凹陷交互区</td><td>无需看屏即可盲触定位，适配私密场景</td></tr>
+  <tr><td>中轴线功能分缝 + 模块化触觉阵列</td><td>传感模块可拆卸更换，便于迭代维护</td></tr>
+  <tr><td>触诊接触面 100–120mm²</td><td>平衡舒适性与数据采集精度</td></tr>
+</table>
 
 **CMF 与灯环交互**：肤感粉色主调；亲肤硅胶包覆 ABS，底部透明 PC 集成传感与 LED；双色注塑软硬一体 + 超声波焊接保证气密。四色 RGB 灯环同时承担三种职责——路径引导（按预设路径点亮色段，确保区域全覆盖）、压力反馈（蓝 = 轻触，绿 = 适中，红 = 过强）、状态反馈（白 = 待机，蓝流动 = 分析，红闪 = 异常，绿常亮 = 完成），不增加语言与界面负担即闭合「引导 — 施压 — 反馈」回路。
 
@@ -135,32 +182,80 @@ flowchart LR
 
 **三明治传力结构 3 轮迭代**：
 
-| 迭代 | 问题 | 改进 |
-|---|---|---|
-| 高度 5 / 8 / 10mm 对比 | 5mm 缓冲不足、易误触发 | 选 8mm：抗干扰强、横向力感知更好 |
-| 垂直下压即信号饱和 | 轻微力就输出最大值 | 引入低密度镂空软泡沫分散力 |
-| 实心半球饱和过早 | 力传导过于集中 | 改双镂空结构，延后饱和点 |
+<table>
+  <tr>
+    <th width="30%">迭代</th>
+    <th width="32%">问题</th>
+    <th>改进</th>
+  </tr>
+  <tr><td>高度 5 / 8 / 10mm 对比</td><td>5mm 缓冲不足、易误触发</td><td>选 8mm：抗干扰强、横向力感知更好</td></tr>
+  <tr><td>垂直下压即信号饱和</td><td>轻微力就输出最大值</td><td>引入低密度镂空软泡沫分散力</td></tr>
+  <tr><td>实心半球饱和过早</td><td>力传导过于集中</td><td>改双镂空结构，延后饱和点</td></tr>
+</table>
 
 **单元标定**：一体式打印 8mm 模型，控制变量法测「模型硬度 × 硅胶硬度」响应（硅胶 Shore 10 / 30 × TPU 30 / 50 / 70，砝码逐级加载），6 组线性回归拟合 **R² 介于 0.976 – 0.994**，传感器线性度约 **98%**、信噪比约 4.5；综合灵敏度与稳定性选定 Shore 30 硅胶。
 
 ## 阵列与电路工程
 
-**蜂窝阵列**：5×5 拓扑取自蜂窝结构——轻质、高强度、力分布均匀，适配乳腺曲面区域的均匀压力传感。
+**蜂窝阵列**：5×5 拓扑取自蜂窝结构——轻质、高强度、力分布均匀，适配乳腺曲面区域的均匀压力传感。从壳体打印、力传导结构到 25 单元上板组装，均为手工完成：
+
+<div align="center">
+<img src="assets/prototype-build.jpg" width="92%" alt="原型制作过程"/>
+<br/><sub>原型制作实录：3D 打印壳体与力传导结构 · FPCB 上的 5×5 阵列组装 · 曲面适配验证</sub>
+</div>
+
+<br/>
 
 **扩阵采样率实测**（面包板渐进扩阵，暴露并解决内存溢出问题后）：
 
-| 阵列规模 | 1×1 | 2×2 | 3×3 | 4×4 | 5×5 |
-|---|:---:|:---:|:---:|:---:|:---:|
-| 采样率 | 820Hz | 200Hz | 90Hz | 50Hz | **32Hz（稳定）** |
+<table>
+  <tr>
+    <th align="center">阵列规模</th>
+    <th align="center">1×1</th>
+    <th align="center">2×2</th>
+    <th align="center">3×3</th>
+    <th align="center">4×4</th>
+    <th align="center">5×5</th>
+  </tr>
+  <tr>
+    <td align="center"><b>采样率</b></td>
+    <td align="center">820Hz</td>
+    <td align="center">200Hz</td>
+    <td align="center">90Hz</td>
+    <td align="center">50Hz</td>
+    <td align="center"><b>32Hz（稳定）</b></td>
+  </tr>
+</table>
 
 **选通电路 4 次方案迭代**——25 个传感器各需独立片选（CSB），直接占用 25 个 IO 不现实，必须压缩 IO 且兼容 BMP280 库的 CSB 时序：
 
-| 方案 | 技术路线 | 结果与根因 |
-|---|---|---|
-| 1. 行列译码器 | 74LS138/04/00 生成 25 路 CSB | 失败：库假定主控直接控 CSB，硬件生成信号与其竞争，时序错位 |
-| 2. SN74LS151N | 两级 MUX、6 GPIO 选址 | 失败：Y 端推挽输出不能当输入，D0–D7 驱动能力不足 |
-| 3. I2C（TCA9548A） | I2C 总线多路选通 | 失败：BMP280 经 I2C 多设备实测约 530Hz 触顶，带宽不足 |
-| 4. 74HC4051 | 高速 CMOS 模拟多路复用、双向传输门 | 成功：50MHz 带宽，25 路稳定选通，采样率与 MCU 直控相当 |
+<table>
+  <tr>
+    <th width="150">方案</th>
+    <th width="30%">技术路线</th>
+    <th>结果与根因</th>
+  </tr>
+  <tr>
+    <td><b>1 · 行列译码器</b></td>
+    <td>74LS138/04/00 生成 25 路 CSB</td>
+    <td>失败：库假定主控直接控 CSB，硬件生成信号与其竞争，时序错位</td>
+  </tr>
+  <tr>
+    <td><b>2 · SN74LS151N</b></td>
+    <td>两级 MUX、6 GPIO 选址</td>
+    <td>失败：Y 端推挽输出不能当输入，D0–D7 驱动能力不足</td>
+  </tr>
+  <tr>
+    <td><b>3 · I2C 选通</b></td>
+    <td>TCA9548A 总线多路选通</td>
+    <td>失败：BMP280 经 I2C 多设备实测约 530Hz 触顶，带宽不足</td>
+  </tr>
+  <tr>
+    <td><b>4 · 74HC4051</b></td>
+    <td>高速 CMOS 模拟多路复用、双向传输门</td>
+    <td>成功：50MHz 带宽，25 路稳定选通，采样率与 MCU 直控相当</td>
+  </tr>
+</table>
 
 > 调试方法：按「连通性 → 电压 → 地址 → 逻辑」逐项定位，把失败归因到「库时序 / 芯片输出结构 / 总线带宽」三类不同性质的障碍后针对性换方案，而非盲目试错。
 
@@ -181,12 +276,33 @@ flowchart LR
 
 **两种方案对照**：
 
-| | 方案一：ResNet-18 迁移学习 | 方案二：自研 1D-CNN |
-|---|---|---|
-| 思路 | 时序矩阵插值为 3 通道 224×224 图像，冻结卷积层微调全连接 | 3 层一维卷积（核 5→3），padding 保长 + 最大池化压缩时间维 |
-| 训练策略 | Adam + 动态学习率 + 早停 + 混合精度 + 多种数据增强 | BatchNorm + Dropout + L2 正则；配置 / 训练引擎模块化 |
-| 准确率 | 52% | **95.24%（第 15 epoch 收敛）** |
-| 结论 | 小样本过拟合；2D 卷积 + 图像预训练特征抓不住时序长程依赖 | 与数据结构匹配的轻量模型显著优于「套大模型」 |
+<table>
+  <tr>
+    <th width="90"></th>
+    <th width="45%">方案一 · ResNet-18 迁移学习</th>
+    <th>方案二 · 自研 1D-CNN</th>
+  </tr>
+  <tr>
+    <td align="center"><b>思路</b></td>
+    <td>时序矩阵插值为 3 通道 224×224 图像，冻结卷积层微调全连接</td>
+    <td>3 层一维卷积（核 5→3），padding 保长 + 最大池化压缩时间维</td>
+  </tr>
+  <tr>
+    <td align="center"><b>训练策略</b></td>
+    <td>Adam + 动态学习率 + 早停 + 混合精度 + 多种数据增强</td>
+    <td>BatchNorm + Dropout + L2 正则；配置 / 训练引擎模块化</td>
+  </tr>
+  <tr>
+    <td align="center"><b>准确率</b></td>
+    <td>52%</td>
+    <td><b>95.24%（第 15 epoch 收敛）</b></td>
+  </tr>
+  <tr>
+    <td align="center"><b>结论</b></td>
+    <td>小样本过拟合；2D 卷积 + 图像预训练特征抓不住时序长程依赖</td>
+    <td>与数据结构匹配的轻量模型显著优于「套大模型」</td>
+  </tr>
+</table>
 
 <div align="center">
 <img src="assets/cnn-training-curves.jpg" width="88%" alt="1D-CNN 训练曲线"/>
@@ -201,14 +317,19 @@ flowchart LR
 
 ## 关键成果一览
 
-| 维度 | 指标 | 数值 / 结论 |
-|---|---|---|
-| 用户研究 | 有效问卷 / 深访 / 竞品 | 100 份 / 3 类角色 / 6 款三维定量评分 |
-| 传感单元 | 线性度 / 信噪比 / 标定拟合 | 约 98% / 约 4.5 / R² 最高 0.994 |
-| 阵列 | 规模 / 采样率 | 5×5（25 单元）/ 32Hz 稳定 |
-| 选通电路 | 最终方案带宽 | 74HC4051，50MHz（对照 I2C 路线约 530Hz 上限） |
-| 算法 | 肿块二分类 / 力度六级分级 | 95.24%（对照 ResNet-18 52%）/ 98% |
-| 产品 | 整机尺寸 / 交互 | 132×120mm、底径 90mm / 全流程不超过 3 次交互（快速 3min，深度 10min） |
+<table>
+  <tr>
+    <th width="110" align="center">维度</th>
+    <th width="38%">指标</th>
+    <th>数值 / 结论</th>
+  </tr>
+  <tr><td align="center"><b>用户研究</b></td><td>有效问卷 / 深访 / 竞品</td><td>100 份 / 3 类角色 / 6 款三维定量评分</td></tr>
+  <tr><td align="center"><b>传感单元</b></td><td>线性度 / 信噪比 / 标定拟合</td><td>约 98% / 约 4.5 / R² 最高 0.994</td></tr>
+  <tr><td align="center"><b>阵列</b></td><td>规模 / 采样率</td><td>5×5（25 单元）/ 32Hz 稳定</td></tr>
+  <tr><td align="center"><b>选通电路</b></td><td>最终方案带宽</td><td>74HC4051，50MHz（对照 I2C 路线约 530Hz 上限）</td></tr>
+  <tr><td align="center"><b>算法</b></td><td>肿块二分类 / 力度六级分级</td><td>95.24%（对照 ResNet-18 52%）/ 98%</td></tr>
+  <tr><td align="center"><b>产品</b></td><td>整机尺寸 / 交互</td><td>132×120mm、底径 90mm / 不超过 3 次交互（快速 3min，深度 10min）</td></tr>
+</table>
 
 ## 展板
 
