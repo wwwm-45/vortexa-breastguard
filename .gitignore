@@ -1,0 +1,6 @@
+# 展示仓库：默认忽略全部内容，仅放行 README 与展示素材
+/*
+
+!/.gitignore
+!/README.md
+!/assets/
