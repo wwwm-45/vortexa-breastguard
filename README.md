@@ -14,7 +14,7 @@
 
 <br/><br/>
 
-<img src="assets/hero-banner.jpg" width="100%" alt="VORTEXA — 多一双温柔的手，守护每月的安心"/>
+<img src="assets/hero-kv.jpg" width="100%" alt="VORTEXA — 多一双温柔的手，守护每月的安心"/>
 
 <br/>
 
